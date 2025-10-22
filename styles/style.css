@@ -1,0 +1,109 @@
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  /* 2. Remove default margin */
+  * {
+    margin: 0;
+  }
+  
+  /* 3. Enable keyword animations */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      interpolate-size: allow-keywords;
+    }
+  }
+  
+  body {
+    /* 4. Add accessible line-height */
+    line-height: 1.5;
+    /* 5. Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  
+  /* 6. Improve media defaults */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  
+  /* 7. Inherit fonts for form controls */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  
+  /* 8. Avoid text overflows */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  
+  /* 9. Improve line wrapping */
+  p {
+    text-wrap: pretty;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+  
+  /* 10. Create a root stacking context */
+  #root, #__next {
+    isolation: isolate;
+  }
+  .container{
+    max-width: 70vw;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+  header{
+    position: fixed;   /* 화면 기준으로 고정 */
+    top: 0;            /* 상단에 위치 */
+    left: 0;           /* 왼쪽부터 시작 */
+    width: 100%;       /* 화면 가로 전체 차지 */
+    z-index: 1000;     /* 다른 요소보다 위에 표시 */
+    background-color: #fff;  /* 스크롤 시 배경이 투명해지지 않도록 */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* 살짝 그림자 */
+  }
+  .header-inner{
+    max-width: 70vw;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+  }
+  .header-content{
+
+  }
+  .left-content{
+    display: flex;
+    gap: 2vw;
+  }
+  left-text-menu{
+    display: flex;
+    gap: 1vw;
+    font-weight: bold;
+  }
+
+  
+  .mainContainer{
+    background-color: antiquewhite;
+    margin-top: 10vh;
+  }
+  footer{
+    max-width: 70vw;
+    margin: 0 auto;
+    box-sizing: border-box;
+   height: 30vh;
+  }
+  .footer-inner{
+    background-color: bisque;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+  }
+  
