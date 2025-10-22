@@ -53,11 +53,12 @@
     isolation: isolate;
   }
   .container{
-    max-width: 65vw;
+    max-width: 60vw;
     margin: 0 auto;
     padding: 0 20px;
     box-sizing: border-box;
   }
+  /* 헤더 css 시작 */
   header{
     position: fixed;   /* 화면 기준으로 고정 */
     top: 0;            /* 상단에 위치 */
@@ -68,7 +69,7 @@
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* 살짝 그림자 */
   }
   .header-inner{
-    max-width: 65vw;
+    max-width: 60vw;
     margin: 0 auto;
     padding: 0 20px;
     box-sizing: border-box;
@@ -84,12 +85,17 @@
   }
   .left-content{
     display: flex;
+    align-items: center;
     gap: 2vw;
   }
-  /* 헤더의 왼쪽 텍스트 메뉴 */
+  .logo-icon{
+    cursor: pointer;
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
   .left-text-menu{
     display: flex;
-    gap: 1vw;
+    gap: 2vw;
     font-weight: bold;
   }
   .left-text-menu span{
@@ -102,7 +108,7 @@
   .right-content{
     display: flex;
     align-items: center;
-    gap: 4vw;
+    gap: 1vw;
   }
   .right-search{
     display: flex;
@@ -111,31 +117,40 @@
   .search-bar{
     display: flex;
     align-items: center;
-    gap: 1vw;
-    border: 1px solid #EAEDEF;
+    border: 1px solid #dcdedfa6;
     padding: 0 10px;
     border-radius: 5px;
     height: 5vh;
+    width: 15vw;
   }
   .search-bar input{
     border: none;
     outline: none;
   }
+  .search-bar input:placeholder{
+    columns: #F7F9FA;
+  }
   .search-bar:focus-within{
     border: 1px solid #0AA5FF;
-    background-color: #EAEDEF;
   }
   .search-bar:hover,
   .search-bar:hover input{
-    background-color: #EAEDEF;
+    background-color: #F7F9FA;
   }
-  .search-icon{
-    
+  .fas.fa-cart-shopping:hover {
+    color: #007bff;
+    cursor: pointer;
+  }
+  .fas.fa-house{
+    color: #007bff;
   }
   .right-menu{
     display: flex;
     align-items: center;
     gap: 1vw;
+  }
+  .menu-item span{
+    cursor: pointer;
   }
   .menu-item span:nth-child(0){
     padding: 0 5px
@@ -148,17 +163,31 @@
     border-right: 1px solid #EAEDEF;
     padding: 0 5px
   }
+  .write-button{
+    display: flex;
+    align-items: center;
+    background-color: #0198ED;
+    border-radius: .2rem;
+    padding: .5rem;
+    color: white;
+    gap: .3rem;
+  }
+  .write-button:hover{
+    background-color: #0b72ad;
+  }
   .write-button span{
     display: flex;
     align-items: center;
     gap: 1vw;
+    cursor: pointer;
   }
-  .mainContainer{
+   /* 헤더 css 끝 */
+   .mainContainer{
     background-color: antiquewhite;
     margin-top: 10vh;
   }
   footer{
-    max-width: 65vw;
+    max-width: 60vw;
     margin: 0 auto;
     box-sizing: border-box;
    height: 30vh;
@@ -169,4 +198,3 @@
     display: flex;
     align-items: center;
   }
-  
