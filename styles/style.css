@@ -47,6 +47,16 @@
   h1, h2, h3, h4, h5, h6 {
     text-wrap: balance;
   }
+  ul, ol {
+    list-style: none;        /* 불릿 포인트/번호 제거 */
+    margin: 0;              /* 기본 마진 제거 */
+    padding: 0;             /* 기본 패딩 제거 */
+}
+
+li {
+    margin: 0;              /* li의 기본 마진도 제거 */
+    padding: 0;             /* li의 기본 패딩도 제거 */
+}
   
   /* 10. Create a root stacking context */
   #root, #__next {
@@ -123,6 +133,9 @@
     height: 5vh;
     width: 15vw;
   }
+  .fas.fa-magnifying-glass{
+    color: #bfbfbf;
+  }
   .search-bar input{
     border: none;
     outline: none;
@@ -151,17 +164,11 @@
   }
   .menu-item span{
     cursor: pointer;
-  }
-  .menu-item span:nth-child(0){
-    padding: 0 5px
-  }
-  .menu-item span:nth-child(1){
     padding: 0 5px
   }
   .menu-item span:nth-child(2){
     border-left: 1px solid #EAEDEF;
     border-right: 1px solid #EAEDEF;
-    padding: 0 5px
   }
   .write-button{
     display: flex;
@@ -182,10 +189,160 @@
     cursor: pointer;
   }
    /* 헤더 css 끝 */
+
+   /* 메인 컨테이너 css 시작 */
    .mainContainer{
-    background-color: antiquewhite;
-    margin-top: 10vh;
   }
+  /* 메인 컨테이너 > 상위 서브메뉴 */
+  .main-sub-menu{
+    margin-top: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #EAEDEF;
+    margin-bottom: 3vh;
+  }
+  .sub-menu-inner{
+    width: 60vw;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    height: 6vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .sub-menu-left{
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    font-weight: bold;
+    padding-bottom: 0;
+  }
+  .sub-menu-left span{
+    cursor: pointer;
+    padding: 16px 0;
+    position: relative;
+  }
+  .sub-menu-left span.active{
+    color : #0AA5FF
+  }
+  .sub-menu-left span.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -5px;
+    right:-5px;
+    height: 2px;
+    background-color: #0AA5FF;
+}
+  .sub-menu-left span:hover{
+    color: #0AA5FF !important;
+  }
+  .sub-menu-right{
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+  }
+  .item-rank{
+    overflow: hidden;
+    position: relative;
+    height: 3vh; /* 한 번에 하나의 항목만 보이도록 높이 제한 */
+  }
+  .rank-list{
+    animation: slideUp 25s cubic-bezier(0, 0, 0, 1) infinite;
+  }
+  @keyframes slideUp {
+    0%, 8% { transform: translateY(0); }      /* 1번 항목: 0-8% (2초) */
+    10%, 18% { transform: translateY(-3vh); } /* 2번 항목: 10-18% (2초) */
+    20%, 28% { transform: translateY(-6vh); } /* 3번 항목: 20-28% (2초) */
+    30%, 38% { transform: translateY(-9vh); } /* 4번 항목: 30-38% (2초) */
+    40%, 48% { transform: translateY(-12vh); } /* 5번 항목: 40-48% (2초) */
+    50%, 58% { transform: translateY(-15vh); } /* 6번 항목: 50-58% (2초) */
+    60%, 68% { transform: translateY(-18vh); } /* 7번 항목: 60-68% (2초) */
+    70%, 78% { transform: translateY(-21vh); } /* 8번 항목: 70-78% (2초) */
+    80%, 88% { transform: translateY(-24vh); } /* 9번 항목: 80-88% (2초) */
+    90%, 98% { transform: translateY(-27vh); } /* 10번 항목: 90-98% (2초) */
+    100% { transform: translateY(0); }         /* 다시 1번으로 */
+  }
+  .rank-list li{
+    counter-increment: ranking;
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    height: 3vh;
+    padding: 0;
+    margin: 0;
+  }
+  .rank-list li::before{
+    content: counter(ranking);
+    width: 1vw;
+    text-align: right;
+    font-weight: bold;
+    flex-shrink: 0;  /* 너비 고정 유지 */
+  }
+  
+  .rank-item{
+    display: flex;
+    align-items: center;
+    margin-left: 0.5vw;  /* 숫자와 텍스트 사이 간격 */
+  }
+  .new-item::before{
+    content:'NEW';
+    font-size: .5rem;
+    padding: 5px;
+    color: rgb(255, 17, 0);
+    width: 1.5vw;
+    text-align: left;
+    flex-shrink: 0;
+  }
+  .up-item::before{
+    content:'▲';
+    font-size: .5rem;
+    padding: 5px;
+    color: rgb(255, 17, 0);
+    width: 1.5vw;
+    text-align: left;
+    flex-shrink: 0;
+  }
+  .down-item::before{
+    content:'▼';
+    font-size: .5rem;
+    padding: 5px;
+    color: rgb(255, 17, 0);
+    width: 1.5vw;
+    text-align: left;
+    flex-shrink: 0;
+  }
+  .sub-menu-right>.fa-solid.fa-angle-down{
+    cursor: pointer;
+  }
+
+  .main-card{
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+  }
+  .left-card{
+    position: relative;
+  }
+  .card-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .card-text{
+    position: absolute;
+    bottom: 3vh;
+    left: 1vw;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: .5vh;
+  }
+  /* 메인 컨테이너 css 끝 */
+
+
   footer{
     max-width: 60vw;
     margin: 0 auto;
