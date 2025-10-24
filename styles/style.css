@@ -521,16 +521,40 @@ li {
 }
 .find-picture-section-content{
   flex:5;
-  border: 1px solid #EAEDEF;
   display: flex;
+  flex-wrap: nowrap;
   gap: 1vw;
   align-items: center;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  padding: 1vh 0;
 }
 .find-picture-section-content-item{
-  width: 10vw;
+  flex: 0 0 calc((100% - 5vw) / 6); /* 6개의 아이템을 한 줄에 배치하고 간격 고려 */
+  height: 20vh;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
   height: 100%;
   background-color: #f0f0f0;
 }
+
+.find-picture-section-content-item:hover {
+  transform: scale(1.02); /* 호버 시 살짝 확대 */
+}
+
+/* 처음 6개만 보이게 하기 */
+.find-picture-section-content-item:nth-child(n+7) {
+  display: none;
+}
+
+/* 버튼 클릭 시 나머지 6개도 보이게 하기 */
+.find-picture-section-content-button:hover .find-picture-section-content-item:nth-child(n+7) {
+  display: block;
+}
+
   /* 메인 컨테이너 css 끝 */
 
 
